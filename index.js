@@ -30,6 +30,12 @@ function playRound(playerSelection, computerSelection){ //compares choice betwee
     }
 }
 
+function declareWinner(){ //displays alert box with winner based on final score
+    if(playerWinsQuantity > computerWinsQuantity) window.alert(`Final Score:\nPlayer: ${playerWinsQuantity} Computer: ${computerWinsQuantity}\nYou win!`);
+    else if(playerWinsQuantity < computerWinsQuantity) window.alert(`Final Score:\nPlayer: ${playerWinsQuantity} Computer: ${computerWinsQuantity}\nYou lose!`);
+    else window.alert(`Final Score:\nPlayer: ${playerWinsQuantity} Computer: ${computerWinsQuantity}\nIt's a tie!`);
+}
+
 function game(){ //initiates game
     playerWinsQuantity = 0;
     computerWinsQuantity = 0;
@@ -38,8 +44,10 @@ function game(){ //initiates game
         const computerSelection = computerPlay(); //creates computer choice
         console.log(playRound(playerSelection, computerSelection)); //initiates player vs computer choice and logs out victory condition;
     }
+    declareWinner(); //outputs alert box regarding winner after 5 rounds
 }
 
+//global variables declared
 let playerWinsQuantity;
 let computerWinsQuantity;
 game(); //starts game
