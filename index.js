@@ -6,23 +6,23 @@ function computerPlay(){  //generates random choice for computer opponent (rock/
     }
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){ //compares choice between the player's and computer's choice
     console.log(`player's choice: ${playerSelection} \ncomputer's choice: ${computerSelection}`);
     switch(playerSelection){
-        case "ROCK":
-            switch(computerSelection){
+        case "ROCK": //situation: player chooses "Rock"
+            switch(computerSelection){ //compares player choice to computer choice
                 case "Rock": return "It's a tie!"; break;
                 case "Paper": return "You Lose! Paper beats Rock"; break;
                 case "Scissors": return "You Win! Rock beats Scissors!"; break;
             }
-        case "PAPER":
-            switch(computerSelection){
+        case "PAPER": //situation: player chooses "Paper"
+            switch(computerSelection){ //compares player choice to computer choice
                 case "Rock": return "You Win! Paper beats Rock!"; break;
                 case "Paper": return "It's a tie!"; break;
                 case "Scissors": return "You Lose! Rock beats Paper!"; break;
             }
-        case "SCISSORS":
-            switch(computerSelection){
+        case "SCISSORS": //situation: player chooses "Scissors"
+            switch(computerSelection){ //compares player choice to computer choice
                 case "Rock": return "You Lose! Rock beats Scissors"; break;
                 case "Paper": return "You Win! Scissors beats Paper"; break;
                 case "Scissors": return "It's a tie!"; break;
