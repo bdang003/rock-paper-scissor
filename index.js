@@ -12,50 +12,34 @@ function playRound(playerSelection, computerSelection){ //compares choice betwee
         case "ROCK": //situation: player chooses "Rock"
             switch(computerSelection){ //compares player choice to computer choice
                 case "Rock": return "It's a tie!"; break;
-                case "Paper": return "You Lose! Paper beats Rock"; break;
-                case "Scissors": return "You Win! Rock beats Scissors!"; break;
+                case "Paper": computerWinsQuantity++; return "You Lose! Paper beats Rock"; break;
+                case "Scissors": playerWinsQuantity++; return "You Win! Rock beats Scissors!"; break;
             }
         case "PAPER": //situation: player chooses "Paper"
             switch(computerSelection){ //compares player choice to computer choice
-                case "Rock": return "You Win! Paper beats Rock!"; break;
+                case "Rock": playerWinsQuantity++; return "You Win! Paper beats Rock!"; break;
                 case "Paper": return "It's a tie!"; break;
-                case "Scissors": return "You Lose! Rock beats Paper!"; break;
+                case "Scissors": computerWinsQuantity++; return "You Lose! Rock beats Paper!"; break;
             }
         case "SCISSORS": //situation: player chooses "Scissors"
             switch(computerSelection){ //compares player choice to computer choice
-                case "Rock": return "You Lose! Rock beats Scissors"; break;
-                case "Paper": return "You Win! Scissors beats Paper"; break;
+                case "Rock": computerWinsQuantity++; return "You Lose! Rock beats Scissors"; break;
+                case "Paper": playerWinsQuantity++; return "You Win! Scissors beats Paper"; break;
                 case "Scissors": return "It's a tie!"; break;
             }
     }
 }
 
-function game(){
-    let i;
-    for(i = 0; i<5; i++){
-        let playerSelection;
-        playerSelection = window.prompt(`Round ${i+1}: Enter Rock, Paper, or Scissors:`).toUpperCase();
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
+function game(){ //initiates game
+    playerWinsQuantity = 0;
+    computerWinsQuantity = 0;
+    for(let i = 0; i<5; i++){ //loops game for a total of 5 rounds
+        let playerSelection = window.prompt(`Round ${i+1}:\nPlayer's Score: ${playerWinsQuantity} Computer's Score: ${computerWinsQuantity}\nEnter Rock, Paper, or Scissors:`).toUpperCase(); //takes user input
+        const computerSelection = computerPlay(); //creates computer choice
+        console.log(playRound(playerSelection, computerSelection)); //initiates player vs computer choice and logs out victory condition;
     }
 }
 
-game();
-
-
-
-
-
-
-
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
-// console.log(computerPlay());
+let playerWinsQuantity;
+let computerWinsQuantity;
+game(); //starts game
