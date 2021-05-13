@@ -27,7 +27,7 @@ function playRound(){ //compares choice between the player's and computer's choi
         break;
     }
     if(computerWinsQuantity === 5 || playerWinsQuantity === 5){
-        openEndScreen();
+        openEndScreen(playerWinsQuantity>computerWinsQuantity);
     }
 }
 
@@ -63,13 +63,18 @@ function updateScore(playRecap){ //updates scores to reflect changes
     document.getElementById('scoreboardDisplay').innerHTML = `Player: ${playerWinsQuantity} Computer ${computerWinsQuantity}`;
 }
 
-function openEndScreen(){
+function openEndScreen(playerVictory){
     const main = document.querySelector('#main');
     while(main.firstChild){
         main.removeChild(main.lastChild);
     }
     const endScreen = document.createElement('div');
-    endScreen.innerHTML = "THIS IS THE END";
+    if(playerVictory){
+        endScreen.innerHTML = "You win the entire game! PLAYER VICTORY!";
+    }
+    else{
+        endScreen.innerHTML = "You lost the entire game! COMPUTER VICTORY";
+    }
     main.appendChild(endScreen);
 }
 

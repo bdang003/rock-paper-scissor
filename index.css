@@ -1,9 +1,27 @@
-#playerChoiceContainer{
-    width: 80vw;
-    margin: 0 auto;
+#imageList{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
     padding: 0;
 }
 
 .images{
-    width: 33vw
+    margin: 0;
+    padding: 0;
+    width: 33vw;
 }
+.images:hover{
+    border: solid;
+}
+
+.choice {
+    background-color: #f7f7f7; /* Green */
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
