@@ -10,18 +10,21 @@ function playRound(){ //compares choice between the player's and computer's choi
                 case "Paper": computerWinsQuantity++; updateScore('Round lost! Paper beats Rock'); break;
                 case "Scissors": playerWinsQuantity++; updateScore('Round won! Rock beats Paper'); break;
             }
+        break;
         case "PAPER": //situation: player chooses "Paper"
             switch(computerChoice()){ //compares player choice to computer choice and then updates score/display
                 case "Rock": playerWinsQuantity++; updateScore('Round won! Paper beats Rock'); break;
                 case "Paper": updateScore('Tied!'); break;
                 case "Scissors": computerWinsQuantity++; updateScore('Round Lost! Scissors beats Paper'); break;
             }
+        break;
         case "SCISSORS": //situation: player chooses "Scissors"
             switch(computerChoice()){ //compares player choice to computer choice and then updates score/display
                 case "Rock": computerWinsQuantity++; updateScore('Round lost! Rock beats Scissors'); break;
                 case "Paper": playerWinsQuantity++; updateScore('Round won! Scissors beats Rock'); break;
                 case "Scissors": updateScore('Tied!'); break;
             }
+        break;
     }
     if(computerWinsQuantity === 5 || playerWinsQuantity === 5){
         openEndScreen();
